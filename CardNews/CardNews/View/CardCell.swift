@@ -23,6 +23,6 @@ class CardCell: UICollectionViewCell {
     func Initialize(for info: CardInfo) {
         headlineLabel.text = info.title
         headlineImageView.backgroundColor = info.backgroundColor
-        heightConstraint.constant = info.height - layoutMargins.bottom - layoutMargins.top
+        //heightConstraint.constant = info.height - layoutMargins.bottom - layoutMargins.top
     }
 }

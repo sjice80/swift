@@ -17,46 +17,43 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
+                        <outlet property="delegate" destination="vsN-oD-fpN" id="EGk-3D-3A7"/>
                         <segue destination="D9u-9A-E7a" kind="relationship" relationship="rootViewController" id="iCS-5g-1NF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vZL-mK-Jsb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <customObject id="vsN-oD-fpN" customClass="SpreadTransitionDelegate" customModule="CardNews" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="-1087" y="166"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="m0p-wb-zco">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="spM-mJ-KKF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="D9u-9A-E7a" customClass="MainViewController" customModule="CardNews" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="mWL-Ry-Ekk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sU8-zc-1gP">
-                            <size key="itemSize" width="412" height="365"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
+                        <collectionViewLayout key="collectionViewLayout" id="d94-RL-cBp" customClass="MainCollectionViewLayout" customModule="CardNews" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="BNu-k5-DMT" customClass="CardCell" customModule="CardNews" customModuleProvider="target">
-                                <rect key="frame" x="1" y="0.0" width="412" height="365"/>
+                                <rect key="frame" x="1" y="0.0" width="412" height="557"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WhK-n4-cEA">
-                                    <rect key="frame" x="0.0" y="0.0" width="412" height="365"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="412" height="557"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2L-3s-EB1">
-                                            <rect key="frame" x="8" y="8" width="396" height="349"/>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T2L-3s-EB1">
+                                            <rect key="frame" x="8" y="8" width="0.0" height="386"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cQ1-YA-mre">
-                                                    <rect key="frame" x="8" y="8" width="380" height="224"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cQ1-YA-mre">
+                                                    <rect key="frame" x="8" y="8" width="380" height="442"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dW-Ax-b6u">
-                                                    <rect key="frame" x="8" y="240" width="380" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dW-Ax-b6u">
+                                                    <rect key="frame" x="8" y="240" width="380" height="167"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="ub9-ya-gGc"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -64,12 +61,24 @@
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="200" id="3Jj-td-BoJ"/>
+                                                <constraint firstItem="cQ1-YA-mre" firstAttribute="trailing" secondItem="2dW-Ax-b6u" secondAttribute="trailing" id="28U-dW-ulL"/>
+                                                <constraint firstAttribute="height" constant="308" id="3Jj-td-BoJ"/>
+                                                <constraint firstItem="cQ1-YA-mre" firstAttribute="trailing" secondItem="T2L-3s-EB1" secondAttribute="trailingMargin" constant="388" id="Bvo-zf-xtq"/>
+                                                <constraint firstItem="cQ1-YA-mre" firstAttribute="leading" secondItem="T2L-3s-EB1" secondAttribute="leadingMargin" constant="8" id="KA0-Ag-7EX"/>
+                                                <constraint firstItem="2dW-Ax-b6u" firstAttribute="top" secondItem="cQ1-YA-mre" secondAttribute="bottom" constant="-210" id="PXJ-zN-5N3"/>
+                                                <constraint firstItem="cQ1-YA-mre" firstAttribute="top" secondItem="T2L-3s-EB1" secondAttribute="topMargin" id="boz-yt-1uv"/>
+                                                <constraint firstAttribute="bottom" secondItem="2dW-Ax-b6u" secondAttribute="bottom" constant="20" id="dkF-u9-QJ5"/>
+                                                <constraint firstItem="cQ1-YA-mre" firstAttribute="leading" secondItem="2dW-Ax-b6u" secondAttribute="leading" id="zwI-v2-8Sq"/>
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="T2L-3s-EB1" firstAttribute="top" secondItem="WhK-n4-cEA" secondAttribute="topMargin" id="HFa-pS-L3a"/>
+                                        <constraint firstItem="T2L-3s-EB1" firstAttribute="leading" secondItem="WhK-n4-cEA" secondAttribute="leadingMargin" id="RsV-fG-0LV"/>
+                                        <constraint firstItem="T2L-3s-EB1" firstAttribute="trailing" secondItem="WhK-n4-cEA" secondAttribute="trailingMargin" constant="-396" id="Tp2-fE-wve"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="412" height="365"/>
+                                <size key="customSize" width="412" height="557"/>
                                 <connections>
                                     <outlet property="cardView" destination="T2L-3s-EB1" id="ENX-UE-6oB"/>
                                     <outlet property="headlineImageView" destination="cQ1-YA-mre" id="HkL-CY-ZXp"/>
@@ -88,6 +97,7 @@
                         <segue destination="bhG-6r-aIh" kind="show" identifier="Spread" id="CvA-rP-xhy"/>
                     </connections>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="spM-mJ-KKF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-278.26086956521743" y="164.73214285714286"/>
         </scene>
@@ -99,8 +109,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7dU-7x-B0T">
-                                <rect key="frame" x="47" y="142" width="317" height="319"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-Qr-f7O">
+                                <rect key="frame" x="0.0" y="88" width="414" height="723"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
@@ -108,13 +118,10 @@
                         <viewLayoutGuide key="safeArea" id="Wln-Q6-Hmo"/>
                     </view>
                     <navigationItem key="navigationItem" id="TcI-eg-dXw"/>
-                    <connections>
-                        <outlet property="cardView" destination="7dU-7x-B0T" id="b0C-Zd-ahS"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzS-bK-s1F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="542.02898550724638" y="164.73214285714286"/>
+            <point key="canvasLocation" x="540.57971014492762" y="164.73214285714286"/>
         </scene>
     </scenes>
 </document>

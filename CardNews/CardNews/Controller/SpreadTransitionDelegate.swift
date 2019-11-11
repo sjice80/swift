@@ -17,14 +17,14 @@ protocol SpreadViewController {
 }
 
 class SpreadTransitionDelegate : NSObject {
-    private var duration = 0.5
+    private var transitionDuration = 0.5
 }
 
 // MARK: UIViewControllerAnimatedTransitioning
 
 extension SpreadTransitionDelegate : UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return duration
+        return transitionDuration
     }
      
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -51,7 +51,7 @@ extension SpreadTransitionDelegate : UIViewControllerAnimatedTransitioning {
             containerView.addSubview(toVC.view)
             containerView.addSubview(snapshotView)
             
-            UIView.animate(withDuration: duration, animations: {
+            UIView.animate(withDuration: transitionDuration, animations: {
                 let toFrame = toView.convert(toView.frame, to: containerView)
                 snapshotView.frame = toFrame
                 snapshotView.layoutIfNeeded()
@@ -60,8 +60,17 @@ extension SpreadTransitionDelegate : UIViewControllerAnimatedTransitioning {
                 (toVC as? SpreadViewController)?.AddCardView(v: fromView)
                 snapshotView.removeFromSuperview()
                 toVC.view.backgroundColor = UIColor.white
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
         }
     }
 }
+extension SpreadTransitionDelegate : UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if fromVC is SpreadViewController, toVC is SpreadViewController {
+            return self
+        }
+        return nil
+    }
+}
+

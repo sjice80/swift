@@ -11,6 +11,12 @@ import UIKit
 class NewsViewController: UIViewController {
     
     @IBOutlet weak var cardView: UIView!
+    var bgColor: UIColor!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        cardView.backgroundColor = bgColor
+    }
 }
 extension NewsViewController: SpreadViewController {
     func GetFromCardView() -> UIView {
